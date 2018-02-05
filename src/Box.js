@@ -13,9 +13,15 @@ const Box = (props) => {
   //     }}
   //   />)
   // }
+
+  let textToOutput = props.displayText;
+  if (props.transformText) {
+    textToOutput = props.transformText(props.displayText);
+  }
+
   return (<div>
     <input
-      value={props.displayText}
+      value={textToOutput}
       onChange={ (event) => {
         // console.log(event.target.value);
         const messageText = event.target.value;
